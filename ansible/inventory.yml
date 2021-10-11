@@ -1,0 +1,50 @@
+---
+all:
+  children:
+    # cv_servers:
+    #   hosts:
+    #     cv_atd1:
+    #       ansible_host: thiel-avd-testing-1-783b76e7.topo.testdrive.arista.com
+    #       ansible_user: arista
+    #       ansible_password: arista5o6w
+    OHVLAB:
+      vars:
+        ansible_connection: httpapi
+        ansible_network_os: eos
+        ansible_user: admin
+        # should use vault for passwords
+        ansible_ssh_pass: admin
+        ansible_become: true
+        ansible_become_method: enable
+        ansible_httpapi_use_ssl: true
+        ansible_httpapi_validate_certs: false
+        ansible_python_interpreter: $(which python)
+      children:
+        OHV_FABRIC:
+          children:
+            OHV_SPINES:
+              hosts:
+                EOS14:
+                  ansible_host: 172.31.0.24
+                EOS15:
+                  ansible_host: 172.31.0.25
+            OHV_L3LEAFS:
+              children:
+                POD1:
+                  hosts:
+                    EOS10:
+                      ansible_host: 172.31.0.20
+                    EOS11:
+                      ansible_host: 172.31.0.21
+                POD2:
+                  hosts:
+                    EOS20:
+                      ansible_host: 172.31.0.30
+                    EOS21:
+                      ansible_host: 172.31.0.31
+            OHV_TENANTS_NETWORKS:
+              children:
+                OHV_L3LEAFS:
+            OHV_SERVERS:
+              children:
+                OHV_L3LEAFS:
