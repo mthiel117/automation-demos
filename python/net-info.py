@@ -14,6 +14,8 @@ else:
   ssl._create_default_https_context = _create_unverified_https_context
 
 # Example Node List, Modify to make it your own
+#
+# OHVLAB Switch List below - VPN REQUIRED
 
 nodes = ["172.31.0.12",
          "172.31.0.15",
@@ -23,7 +25,15 @@ nodes = ["172.31.0.12",
          "172.31.0.19",
          "172.31.0.20",
          "172.31.0.21",
-         "172.31.0.30"]
+         "172.31.0.22",
+         "172.31.0.23",
+         "172.31.0.24",
+         "172.31.0.25",
+         "172.31.0.26",
+         "172.31.0.27",
+         "172.31.0.28",
+         "172.31.0.30",
+         "172.31.0.31"]
 
 # Modify switch login userid and pw as needed
 userid = "admin"
