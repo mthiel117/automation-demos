@@ -25,6 +25,7 @@
       tags: [ update, full ]
       cv_container_v3:
         topology: "{{ CVP_CONTAINERS }}"
+        apply_mode: strict
       register: CVP_CONTAINERS_RESULT
 
     # Task will update Device configlet list and which container the device is connected
@@ -33,10 +34,11 @@
       cv_device_v3:
         devices: "{{ CVP_DEVICES }}"
         state: present
+        apply_mode: strict
       register: CVP_DEVICES_RESULT
 
-    - name: Execute all tasks registered in cvp_configlets variable
-      tags: [execute, never]
-      cv_task_v3:
-        tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
+    # - name: Execute all tasks registered in cvp_configlets variable
+    #   tags: [execute, never]
+    #   cv_task_v3:
+    #     tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
 

@@ -16,14 +16,14 @@ CVP_DEVICES:
   - fqdn: SW1.thielnet.com
     parentContainerName: LEAFS
     configlets:
-      # - DC1_SW1-BASE
-      # - DC1_SW1-MLAG
-      # - DC1_SW1-PORTCHANNELS
-      # - DC1_SW1-BGP
+      - DEMO_Global_Common
+      - DEMO_SW1_Base
+      - DEMO_SW1_Interfaces
+      - DEMO_SW1_Mlag
   - fqdn: SW2.thielnet.com
     parentContainerName: LEAFS
     configlets:
-      # - DC1_SW2-BASE
-      # - DC1_SW2-MLAG
-      # - DC1_SW2-PORTCHANNELS
-      # - DC1_SW2-BGP
+      - DEMO_Global_Common
+      - DEMO_SW2_Base
+      - DEMO_SW2_Interfaces
+      - DEMO_SW2_Mlag
