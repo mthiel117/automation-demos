@@ -27,3 +27,13 @@ CVP_DEVICES:
       - DEMO_SW2_Base
       - DEMO_SW2_Interfaces
       - DEMO_SW2_Mlag
+
+RESET_CVP_DEVICES:
+  - fqdn: SW1.thielnet.com
+    parentContainerName: BASE
+    configlets:
+      - DEMO_SW1_Staging
+  - fqdn: SW2.thielnet.com
+    parentContainerName: BASE
+    configlets:
+      - DEMO_SW2_Staging

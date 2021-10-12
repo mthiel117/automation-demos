@@ -19,3 +19,7 @@ CVP_CONTAINERS:
     parentContainerName: DEMO
   SPINES:
     parentContainerName: DEMO
+
+RESET_CVP_CONTAINERS:
+  BASE:
+    parentContainerName: Tenant
