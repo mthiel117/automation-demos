@@ -1,5 +1,7 @@
 ---
 
+# Push EVPN/VXLAN switch configs to EOS10,11,14,15,20,21
+
 - name: Push switch configs
   connection: httpapi
   hosts: all
