@@ -37,8 +37,9 @@
         apply_mode: strict
       register: CVP_DEVICES_RESULT
 
-    # - name: Execute all tasks registered in cvp_configlets variable
-    #   tags: [execute, never]
-    #   cv_task_v3:
-    #     tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
+    # Task will Execute pending Tasks
+    - name: Execute all tasks registered in cvp_configlets variable
+      tags: [execute, never]
+      cv_task_v3:
+        tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
 
