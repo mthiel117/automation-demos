@@ -5,20 +5,7 @@ all:
       hosts:
         cvp:
           ansible_host: 192.168.1.248
-          # ansible_user: cvpadmin
-          # ansible_password: cvpadmin123
     OHVLAB:
-      # vars:
-      #   ansible_connection: httpapi
-      #   ansible_network_os: eos
-      #   ansible_user: admin
-      #   # should use vault for passwords
-      #   ansible_ssh_pass: admin
-      #   ansible_become: true
-      #   ansible_become_method: enable
-      #   ansible_httpapi_use_ssl: true
-      #   ansible_httpapi_validate_certs: false
-      #   ansible_python_interpreter: $(which python)
       children:
         OHV_FABRIC:
           children:
