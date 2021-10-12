@@ -1,0 +1,12 @@
+!
+hostname SW1
+!
+vrf instance MGMT
+!
+interface Management1
+   vrf MGMT
+   ip address 192.168.1.244/24
+!
+no ip routing vrf MGMT
+ip route vrf MGMT 0.0.0.0/0 192.168.1.1
+!

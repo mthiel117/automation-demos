@@ -1,0 +1,29 @@
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$K3MhvxGdbQJRnKiL$SZ5Mno86xidPik3tFDbGcUAFnq1P1cVDdPhbmQ/tzyjhvB.apnbMmQXxOqfI6H/iMxeoHAZauemzpKFTPyUk.1
+username cvpadmin privilege 15 role network-admin secret sha512 $6$VPntEaxb3/K10NxQ$PjeVi7OLF.KTw03HUM011GPVqxfM7KGAhEekFm5gIudqegF.l17hTUmYUaiI7Nw7xycYFMBbEimQHkysqCMaD.
+username mthiel privilege 15 role network-admin secret sha512 $6$WPuhY6v0KvXKX2IA$vJU32GR6RwTBwdJjnG.MzCT5YWb4m9L6dD8Cm4cM6BR0fw0g01.4Cn2HQX.lCKuL6D8WOA89TLATjCNIN9lYV1
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.1.248:9910 -cvcompression=gzip -ingestauth=key,magickey -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
+   no shutdown
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+ip virtual-router mac-address aa:aa:bb:bb:cc:cc
+!
+ip routing
+!
+ip name-server vrf MGMT 192.168.1.246
+dns domain thielnet.com
+!
+spanning-tree mode mstp
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!

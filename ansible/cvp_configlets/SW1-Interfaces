@@ -1,0 +1,7 @@
+vlan 10
+   name Ten
+!
+interface Vlan10
+   ip address 10.10.10.2/24
+   ip virtual-router address 10.10.10.1
+!
