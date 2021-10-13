@@ -4,7 +4,7 @@
 
 - name: Push switch configs
   connection: httpapi
-  hosts: all
+  hosts: OHV_FABRIC
   gather_facts: no
   become: yes
   become_method: enable
